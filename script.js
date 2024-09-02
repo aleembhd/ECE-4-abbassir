@@ -225,8 +225,10 @@ function showCRProfiles() {
   crProfiles.innerHTML = ''; // Clear existing profiles
 
   const crs = [
-    { name: 'D.Akhil', rollNumber: '22WJ1A0468', email: '22WJ1A0468@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
-    { name: 'J.Harshitha', rollNumber: '22WJ1A04A9', email: '22WJ1A04A9@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'SRI CHARAN REDDY', rollNumber: '22WJ1A04P8', email: '22WJ1A04P8@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'ADITYA', rollNumber: '22WJ1A04L5', email: '22WJ1A04L5@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'PRATHYUSHA', rollNumber: '22WJ1A04N1', email: '22WJ1A04N1@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: ' MEGHANA', rollNumber: '22WJ1A04Q4', email: '22WJ1A04Q4@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
   ];
 
   crs.forEach(cr => {
