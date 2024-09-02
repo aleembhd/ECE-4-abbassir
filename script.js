@@ -496,7 +496,7 @@ function callParent() {
         
         // Log the call
         const log = {
-          sender: 'NVS Murthy',
+          sender: 'Dr Abbas Ahmad',
           recipient: parentPhone,
           studentName: studentName,
           studentRoll: studentRoll,
@@ -546,7 +546,7 @@ function whatsappStudent() {
     
     // Log the WhatsApp message
     const log = {
-      sender: 'NVS Murthy',
+      sender: 'Dr Abbas Ahmad',
       recipient: studentPhone,
       studentName: studentName,
       studentRoll: studentRoll,
@@ -576,7 +576,7 @@ function sendCustomWhatsAppMessage() {
     
     // Log the custom WhatsApp message
     const log = {
-      sender: 'NVS Murthy',
+      sender: 'Dr Abbas Ahmad',
       recipient: parentPhone,
       studentName: studentName,
       studentRoll: studentRoll,
@@ -682,7 +682,7 @@ function sendBulkMessage(half) {
   phonesForHalf.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'NVS Murthy',
+      sender: 'Dr Abbas Ahmad',
       recipient: phone,
       studentName: student.name,
       studentRoll: student.rollNumber,
@@ -736,7 +736,7 @@ function sendBulkMessage(group) {
   parentPhones.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'NVS Murthy',
+      sender: 'Dr Abbas Ahmad',
       recipient: phone,
       studentName: student ? student.name : 'N/A',
       studentRoll: student ? student.rollNumber : 'N/A',
