@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
  .gnilogo {
     display: flex;
@@ -618,5 +619,188 @@ font-size: 15px;
     padding: 10px 15px; /* Padding for desktop buttons */
     font-size: 16px; /* Larger font size for desktop */
     min-width: 150px; /* Minimum width for buttons on desktop */
+  }
+}
+.print-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.icon {
+  font-size: 1.2em;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+.print-preview {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  padding: 20px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-preview, .print-preview * {
+    visibility: visible;
+  }
+  .print-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+  /* Ensure the header and footer are visible when printing */
+  .print-preview h2,
+  .print-preview p {
+    visibility: visible !important;
+  }
+}
+
+/* Styles for the printable table */
+#printContent table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+#printContent th, #printContent td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#printContent th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#printContent tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Add or update these styles in your CSS file */
+.print-btn.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 24px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.print-btn.fab:hover {
+  background-color: #1967d2;
+  transform: scale(1.1);
+}
+
+.print-btn.fab .icon {
+  font-size: inherit;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 600px) {
+  .print-btn.fab {
+    bottom: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+.print-preview {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#printContent table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+#printContent th, #printContent td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: left;
+}
+
+#printContent th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-preview, .print-preview * {
+    visibility: visible;
+  }
+  .print-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
   }
 }
