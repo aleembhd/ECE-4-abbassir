@@ -74,26 +74,25 @@ const students = [
 
 let messageLogs = [];
 
-const sectionNamespace = 'section4'; // Change this for each section, e.g., 'section2'
-
+// Simulated server-side database
 const localStorageDatabase = {
   saveMessage: function (log) {
-    let messages = JSON.parse(localStorage.getItem(`${sectionNamespace}_messageLogs`)) || [];
+    let messages = JSON.parse(localStorage.getItem('messageLogs')) || [];
     messages.push(log);
     this.cleanupOldMessages(messages);
-    localStorage.setItem(`${sectionNamespace}_messageLogs`, JSON.stringify(messages));
+    localStorage.setItem('messageLogs', JSON.stringify(messages));
   },
   getAllMessages: function () {
-    return JSON.parse(localStorage.getItem(`${sectionNamespace}_messageLogs`)) || [];
+    return JSON.parse(localStorage.getItem('messageLogs')) || [];
   },
   cleanupOldMessages: function (messages) {
     const oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
     const filteredMessages = messages.filter(log => new Date(log.timestamp) > oneMonthAgo);
-    localStorage.setItem(`${sectionNamespace}_messageLogs`, JSON.stringify(filteredMessages));
+    localStorage.setItem('messageLogs', JSON.stringify(filteredMessages));
   },
   clearAllLogs: function () {
-    localStorage.removeItem(`${sectionNamespace}_messageLogs`);
+    localStorage.removeItem('messageLogs');
   }
 };
 
@@ -226,8 +225,10 @@ function showCRProfiles() {
   crProfiles.innerHTML = ''; // Clear existing profiles
 
   const crs = [
-    { name: 'D.Akhil', rollNumber: '22WJ1A0468', email: '22WJ1A0468@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
-    { name: 'J.Harshitha', rollNumber: '22WJ1A04A9', email: '22WJ1A04A9@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'SRI CHARAN REDDY', rollNumber: '22WJ1A04P8', email: '22WJ1A04P8@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'ADITYA', rollNumber: '22WJ1A04L5', email: '22WJ1A04L5@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: 'PRATHYUSHA', rollNumber: '22WJ1A04N1', email: '22WJ1A04N1@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
+    { name: ' MEGHANA', rollNumber: '22WJ1A04Q4', email: '22WJ1A04Q4@gniindia.org', photo: 'https://i.ibb.co/6XNHkhv/image.png' },
   ];
 
   crs.forEach(cr => {
@@ -496,7 +497,7 @@ function callParent() {
         
         // Log the call
         const log = {
-          sender: 'Dr Abbas Ahmad',
+          sender: 'Dr. S M K M Abbas Ahmad',
           recipient: parentPhone,
           studentName: studentName,
           studentRoll: studentRoll,
@@ -541,13 +542,14 @@ function whatsappStudent() {
   const parentName = document.getElementById('parentName').textContent;
   
   if (studentPhone && studentPhone !== 'Not available') {
+    const formattedPhone = `+91${studentPhone.replace(/\D/g, '')}`;
     const message = encodeURIComponent('Hello, this is a message from your faculty.');
-    window.open(`https://wa.me/${studentPhone}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${formattedPhone}?text=${message}`, '_blank');
     
     // Log the WhatsApp message
     const log = {
-      sender: 'Dr Abbas Ahmad',
-      recipient: studentPhone,
+      sender: 'Dr. S M K M Abbas Ahmad',
+      recipient: formattedPhone,
       studentName: studentName,
       studentRoll: studentRoll,
       parentName: parentName,
@@ -576,7 +578,7 @@ function sendCustomWhatsAppMessage() {
     
     // Log the custom WhatsApp message
     const log = {
-      sender: 'Dr Abbas Ahmad',
+      sender: 'Dr. S M K M Abbas Ahmad',
       recipient: parentPhone,
       studentName: studentName,
       studentRoll: studentRoll,
@@ -682,7 +684,7 @@ function sendBulkMessage(half) {
   phonesForHalf.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'Dr Abbas Ahmad',
+      sender: 'Dr. S M K M Abbas Ahmad',
       recipient: phone,
       studentName: student.name,
       studentRoll: student.rollNumber,
@@ -736,7 +738,7 @@ function sendBulkMessage(group) {
   parentPhones.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'Dr Abbas Ahmad',
+      sender: 'Dr. S M K M Abbas Ahmad',
       recipient: phone,
       studentName: student ? student.name : 'N/A',
       studentRoll: student ? student.rollNumber : 'N/A',
